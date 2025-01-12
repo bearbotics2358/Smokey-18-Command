@@ -30,6 +30,17 @@ SwerveSubsystem::SwerveSubsystem():
     // When the SwerveSubsystem is instantiated, zero the heading from the IMU to the direction the bot
     // is currently facing
     ZeroHeading();
+
+    m_flModule.setDrivePID(SwerveConstants::kPDriveFLModule, SwerveConstants::kIDriveFLModule, SwerveConstants::kDDriveFLModule);
+    m_flModule.setSteerPID(SwerveConstants::kPSteerFLModule, SwerveConstants::kISteerFLModule, SwerveConstants::kDSteerFLModule);
+    m_frModule.setDrivePID(SwerveConstants::kPDriveFRModule, SwerveConstants::kIDriveFRModule, SwerveConstants::kDDriveFRModule);
+    m_frModule.setSteerPID(SwerveConstants::kPSteerFRModule, SwerveConstants::kISteerFRModule, SwerveConstants::kDSteerFRModule);
+    m_blModule.setDrivePID(SwerveConstants::kPDriveBLModule, SwerveConstants::kIDriveBLModule, SwerveConstants::kDDriveBLModule);
+    m_blModule.setSteerPID(SwerveConstants::kPSteerBLModule, SwerveConstants::kISteerBLModule, SwerveConstants::kDSteerBLModule);
+    m_brModule.setDrivePID(SwerveConstants::kPDriveBRModule, SwerveConstants::kIDriveBRModule, SwerveConstants::kDDriveBRModule);
+    m_brModule.setSteerPID(SwerveConstants::kPSteerBRModule, SwerveConstants::kISteerBRModule, SwerveConstants::kDSteerBRModule);
+
+    BrakeOnStop();
 }
 
 SwerveSubsystem::~SwerveSubsystem() {
@@ -86,6 +97,16 @@ void SwerveSubsystem::Stop() {
 }
 
 void SwerveSubsystem::Drive(double xSpeedMps, double ySpeedMps, double rotRadPerSecond, bool fieldOriented) {
+    if (fabs(xSpeedMps) < 0.10) {
+        xSpeedMps = 0;
+    }
+    if (fabs(ySpeedMps) < 0.10) {
+        ySpeedMps = 0;
+    }
+    if (fabs(rotRadPerSecond) < 0.10) {
+        rotRadPerSecond = 0;
+    }
+
     // Makes joystick inputs field oriented
     if (fieldOriented) {
         float gyroRadians = GetHeadingDegrees() * M_PI / 180;
@@ -176,6 +197,13 @@ void SwerveSubsystem::Drive(double xSpeedMps, double ySpeedMps, double rotRadPer
             m_brModule.setDrivePercent(brSpeed);
         }
     }
+}
+
+void SwerveSubsystem::BrakeOnStop() {
+    m_flModule.setBrakeMode(ctre::phoenix::motorcontrol::NeutralMode::Brake);
+    m_frModule.setBrakeMode(ctre::phoenix::motorcontrol::NeutralMode::Brake);
+    m_blModule.setBrakeMode(ctre::phoenix::motorcontrol::NeutralMode::Brake);
+    m_brModule.setBrakeMode(ctre::phoenix::motorcontrol::NeutralMode::Brake);
 }
 
 // void SwerveSubsystem::setModuleStates(frc::SwerveModuleState desiredStates[]) {

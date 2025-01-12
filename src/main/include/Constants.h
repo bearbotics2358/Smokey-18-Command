@@ -37,6 +37,38 @@ inline constexpr double kMaxSpeedMps = 3.0;
 inline constexpr double kMaxAccelerationMpsSq = 3.0;
 inline constexpr double kMaxAngularSpeedRadPerSecond = 3.142;
 
+inline constexpr double kPSteerFLModule = 1.8;
+inline constexpr double kISteerFLModule = 0.3;
+inline constexpr double kDSteerFLModule = 0.0;
+
+inline constexpr double kPDriveFLModule = 0.037;
+inline constexpr double kIDriveFLModule = 0.0;
+inline constexpr double kDDriveFLModule = 0.0;
+
+inline constexpr double kPSteerFRModule = 1.8;
+inline constexpr double kISteerFRModule = 0.3;
+inline constexpr double kDSteerFRModule = 0.0;
+
+inline constexpr double kPDriveFRModule = 0.037;
+inline constexpr double kIDriveFRModule = 0.0;
+inline constexpr double kDDriveFRModule = 0.0;
+
+inline constexpr double kPSteerBLModule = 1.8;
+inline constexpr double kISteerBLModule = 0.3;
+inline constexpr double kDSteerBLModule = 0.0;
+
+inline constexpr double kPDriveBLModule = 0.037;
+inline constexpr double kIDriveBLModule = 0.0;
+inline constexpr double kDDriveBLModule = 0.0;
+
+inline constexpr double kPSteerBRModule = 1.8;
+inline constexpr double kISteerBRModule = 0.3;
+inline constexpr double kDSteerBRModule = 0.0;
+
+inline constexpr double kPDriveBRModule = 0.037;
+inline constexpr double kIDriveBRModule = 0.0;
+inline constexpr double kDDriveBRModule = 0.0;
+
 inline constexpr int kGyroID = 35;
 
 /**

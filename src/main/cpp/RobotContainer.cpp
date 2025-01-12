@@ -18,8 +18,8 @@ RobotContainer::RobotContainer() {
   m_swerveSubsystem.SetDefaultCommand(frc2::RunCommand(
     [this] {
         m_swerveSubsystem.Drive(
-            m_driverController.GetLeftY(),
             m_driverController.GetLeftX(),
+            m_driverController.GetLeftY(),
             m_driverController.GetRightX(),
             true);
       },
