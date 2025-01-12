@@ -86,5 +86,7 @@ private:
     void ZeroHeading();
     frc::Rotation2d GetRotation2d();
 
+    void BrakeOnStop();
+
     void Stop();
 };
