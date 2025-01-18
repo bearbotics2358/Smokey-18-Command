@@ -90,7 +90,7 @@ inline constexpr double CANCODER_OFFSETS[8] = {
     508.6 - 360,    // Offset for Swerve Module 4
     -216.17,        // Offset for Swerve Module 5
     35.77,          // Offset for Swerve Module 6
-    99.22,          // Offset for Swerve Module 7
+    189.22,         // Offset for Swerve Module 7
     246.2,          // Offset for Swerve Module 8
 };
 
