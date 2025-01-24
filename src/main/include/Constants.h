@@ -78,10 +78,10 @@ inline constexpr int kGyroID = 35;
  * Steering ID: 2m
  * Encoder ID: 16 + m
 */
-inline constexpr int FL_ID = 1;
-inline constexpr int FR_ID = 2;
-inline constexpr int BL_ID = 3;
-inline constexpr int BR_ID = 7;
+inline constexpr int FL_ID = 5;
+inline constexpr int FR_ID = 6;
+inline constexpr int BL_ID = 8;
+inline constexpr int BR_ID = 4;
 
 inline constexpr double CANCODER_OFFSETS[8] = {
     715.01,         // Offset for Swerve Module 1
